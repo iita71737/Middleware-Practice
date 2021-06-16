@@ -15,7 +15,7 @@ app.use((req, res, next) => {
      res.on('finish', () => {
       let end = new Date();
       let elapsed = end.getTime() - start.getTime() ;
-      console.log(`Response Time :${new Date()} | ${httpmethod}  from  ${host}${httpurl} | total time: ${elapsed}`)
+      console.log(`Response Time :${new Date()} | ${httpmethod}  from  ${host}${httpurl} | total time: ${elapsed}ms`)
       console.log('-------------------------------')
      })
      next();
