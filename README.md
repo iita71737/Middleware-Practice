@@ -1,16 +1,15 @@
-# Middleware-
+## Server log middleware for Http request   
 
-## 伺服器resquest log
-熟悉middleware 並在路由上加入時間戳
+### Function    
+ - record the request timestamp, method, URL whenever there's http request comes in        
+ - record the time consumed from receiving the request till the response end emitted    
 
-![image]()
+## Quick start   
+Several quick start options are available:
 
-
-## 伺服器response log
-
-![image]()
-
-# 待解決問題
-
-
-
+- Clone the repo: `git clone https://github.com/iita71737/Middleware-Practice.git`
+- On Terminal Window , enter in the project folder `cd Middleware-Practice` 
+- Install all about this project **package** with [npm](https://www.npmjs.com/): `npm install`
+- Start this project `npm run dev `
+- open your browser with `localhost:3000`
+- Can see server log on your terminal

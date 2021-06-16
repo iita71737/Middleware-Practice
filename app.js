@@ -4,32 +4,25 @@ const app = express();
 const port = 3000;
 
 app.use((req, res, next) => {
-  console.log(`Request Time : ${new Date()} | ${req.method}  from  ${req.url}`);
-  console.log('Request Time :', new Date())
-  console.log('-------------------------------')
-  next();
+     const start = new Date();
+     const httpmethod = req.method
+     const httpurl = req.url
+     const host = req.headers.host
+     
+     console.log(`Request Time : ${new Date()} `,new Date() );  
+     console.log('-------------------------------')
+
+     res.on('finish', () => {
+      let end = new Date();
+      let elapsed = end.getTime() - start.getTime() ;
+      console.log(`Response Time :${new Date()} | ${httpmethod}  from  ${host}${httpurl} | total time: ${elapsed}`)
+      console.log('-------------------------------')
+     })
+     next();
 });
 
-// const logText = (req, res ,next) => {
-//     let start = new Date();
-//      res.status(400).send(new Date());
-//      let end = new Date();
-//      let elapsed = end.getTime() - start.getTime() ;
-//      console.log(`Response Time : ${new Date()} `,new Date() );
-//      console.log('Response Time:', new Date() );
-//      console.log(`${new Date()} | ${req.method}  from  ${req.url} | total time: ${elapsed}`)
-//     next();
-// }
-
 app.get("/", (req, res) => {
-     let start = new Date();
-     res.status(400).send(new Date());
-     let end = new Date();
-     let elapsed = end.getTime() - start.getTime() ;
-     console.log(`Response Time : ${new Date()} `,new Date() );
-     console.log('Response Time:', new Date() );
-     console.log(`${new Date()} | ${req.method}  from  ${req.url} | total time: ${elapsed}`)
-     console.log('-------------------------------')
+  res.send('列出全部 Todo')
 });
 
 app.get("/new",  (req, res) => {
